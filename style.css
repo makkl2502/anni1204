@@ -1,0 +1,184 @@
+#keypad-container {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  animation: fadeIn 1s ease;
+  text-align: center;
+}
+
+.message {
+  font-size: 18px;
+  color: #e91e63;
+  margin-bottom: 10px;
+}
+
+#display {
+  font-size: 28px;
+  letter-spacing: 10px;
+  margin: 10px auto 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(3, 60px);
+  grid-gap: 10px;
+  justify-content: center;
+}
+
+.keypad button {
+  padding: 15px;
+  font-size: 18px;
+  background: #ff80ab;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.keypad button:hover {
+  background: #ff4081;
+}
+
+.hidden {
+  display: none;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background: #f9f4f5;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.intro-container {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.memory-photo {
+  width: 300px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.memory-photo:hover {
+  transform: scale(1.05);
+}
+
+#password-form {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  min-width: 250px;
+  animation: fadeIn 1s ease;
+}
+
+input[type="password"] {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  width: 100%;
+  margin: 10px 0;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background: #ff4081;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #ff1a66;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* Căn toàn bộ khung đồng hồ giữa màn hình */
+#time-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(to bottom right, #fff0f5, #ffe4e1);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Tiêu đề trang trí */
+#time-section h2 {
+  font-size: 48px;
+  color: #d94e63;
+  font-family: 'Georgia', serif;
+  margin-bottom: 20px;
+  text-shadow: 0 0 5px rgba(217, 78, 99, 0.4);
+}
+
+/* Hộp đếm thời gian */
+.countup-box {
+  background-color: white;
+  border: 4px solid transparent;
+  border-image: linear-gradient(to right, #f5b0c2, #ffc0cb);
+  border-image-slice: 1;
+  border-radius: 30px;
+  padding: 40px 60px;
+  font-size: 40px;
+  color: #d94e63;
+  font-family: 'Courier New', monospace;
+  box-shadow: 0 10px 25px rgba(217, 78, 99, 0.2);
+  text-align: center;
+  position: relative;
+  min-width: 400px;
+}
+
+.countup-box::before {
+  content: "❤️";
+  font-size: 24px;
+  position: absolute;
+  top: -18px;
+  left: 20px;
+}
+
+/* Nút quay lại */
+.fancy-btn {
+  padding: 14px 30px;
+  background: linear-gradient(to right, #f5b0c2, #d94e63);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 35px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(217, 78, 99, 0.4);
+}
+
+.fancy-btn:hover {
+  transform: scale(1.05);
+  background: linear-gradient(to right, #ffc0cb, #d94e63);
+}

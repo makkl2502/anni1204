@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Mật mã tình yêu</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="intro-container">
+    <img src="fistday.jpg" class="memory-photo" onclick="showKeypad()" />
+
+    <div id="keypad-container" class="hidden">
+      <p class="message">Vui Lòng Nhập Mật Mã</p>
+      <div id="display">____</div>
+
+      <div class="keypad">
+        <button onclick="press(1)">1</button>
+        <button onclick="press(2)">2</button>
+        <button onclick="press(3)">3</button>
+        <button onclick="press(4)">4</button>
+        <button onclick="press(5)">5</button>
+        <button onclick="press(6)">6</button>
+        <button onclick="press(7)">7</button>
+        <button onclick="press(😎">8</button>
+        <button onclick="press(9)">9</button>
+        <button onclick="clearCode()">C</button>
+        <button onclick="press(0)">0</button>
+        <button onclick="checkCode()">OK</button>
+      </div>
+
+      <p id="error" style="color: red; display: none;">Sai rồi, thử lại nhé!</p>
+    </div>
+  </div>
+
+  <script>
+    let code = '';
+    const correctCode = '1204';
+
+    function showKeypad() {
+      document.getElementById("keypad-container").classList.remove("hidden");
+    }
+
+    function press(num) {
+      if (code.length < 4) {
+        code += num;
+        updateDisplay();
+      }
+    }
+
+    function updateDisplay() {
+      const display = document.getElementById("display");
+      display.textContent = code.padEnd(4, "_");
+    }
+
+    function clearCode() {
+      code = '';
+      updateDisplay();
+      document.getElementById("error").style.display = "none";
+    }
+
+    function checkCode() {
+      if (code === correctCode) {
+        window.location.href = "1204.html";
+      } else {
+        document.getElementById("error").style.display = "block";
+        clearCode();
+      }
+    }
+  </script>
+</body>
+</html>
