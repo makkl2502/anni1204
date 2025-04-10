@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Love Letter</title>
+  <link rel="stylesheet" href="ny.css">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <div id="main-screen" class="section">
+    <button onclick="showSection('message')" class="icon-btn">
+      <img src="thu.png"><br>Message
+    </button>
+    <button onclick="showSection('journey')" class="icon-btn">
+      <img src="camera.png"><br>Journey
+    </button>
+    <button onclick="showSection('time')" class="icon-btn">
+      <img src="lich.png"><br>Time
+    </button>
+  </div>
+
+  <div id="message-section" class="section hidden">
+  <div class="message-wrapper">
+  <div class="letter-frame" id="letter">
+    <p id="message-text"></p>
+  </div>
+</div>
+  <button onclick="nextMessage()">Tiếp theo</button>
+  <button onclick="goHome()">Quay lại</button>
+</div>
+  <div id="journey-section" class="section hidden">
+  <div class="photo-frame">
+    <div class="photo-pair">
+      <img id="photo-left" src="" alt="Ảnh trái">
+      <img id="photo-right" src="" alt="Ảnh phải">
+    </div>
+    <p id="photo-caption"></p>
+  </div>
+  <button onclick="nextPhoto()">Tiếp ảnh</button>
+  <button onclick="goHome()">Quay lại</button>
+</div>
+
+
+<div id="time-section" class="section hidden">
+  <div class="countdown-container">
+  <div class="time-frame">
+    <div class="countdown">
+      <div><span id="days">00</span><div class="label">Days</div></div>
+      <div><span id="hours">00</span><div class="label">Hours</div></div>
+      <div><span id="minutes">00</span><div class="label">Minutes</div></div>
+      <div><span id="seconds">00</span><div class="label">Seconds</div></div>
+    </div>
+    <button onclick="goHome()" class="back-btn">Quay lại</button>
+  </div>
+</div>
+
+</div>
+
+
+  <script>
+    const messages = [
+      "Lời nhắn 1: Bất ngờ chưaaaaaaaa hihi, chưa gì đã là năm thứ 2 mình bên nhau gòi. Thời gian qua cảm ơn bé iu đã cùng anh trải qua biết bao khung bật cảm xúc mà mình cũng không nghĩ sẽ cùng nhau trải nghiệm đến tận bây giờ ",
+      "Lời nhắn 2: Cảm ơn em đã luôn bên anh.",
+      "Lời nhắn 3: Mỗi ngày có em là một điều tuyệt vời."
+    ];
+    let msgIndex = 0;
+
+    const photos = [
+  { left: "snem1.jpg", right: "snem.jpg", caption: "Kỷ niệm mùa đông đầu tiên." },
+  { left: "ptlan1.jpg", right: "ptlan2.jpg", caption: "Chuyến đi biển đáng nhớ." },
+  { left: "giaothua.jpg", right: "365day.jpg", caption: "Ngày mưa cùng nhau dạo phố." },
+  { left: "hevoibe.jpg", right: "365day.jpg", caption: "Ngày mưa cùng nhau dạo phố." }
+
+];
+
+
+    let photoIndex = 0;
+
+    function showSection(section) {
+      document.getElementById("main-screen").style.display = "none";
+      document.querySelectorAll(".section").forEach(s => s.style.display = "none");
+      document.getElementById(section + "-section").style.display = "block";
+
+      if (section === 'message') {
+  msgIndex = 0;
+  document.getElementById("message-text").innerText = messages[msgIndex];
+
+  const letter = document.getElementById("letter");
+  letter.classList.remove("letter-open"); // reset
+  setTimeout(() => {
+    letter.classList.add("letter-open"); // mở sau 100ms cho mượt
+  }, 100);
+}
+     if(section === 'journey') {
+  photoIndex = 0;
+  document.getElementById("photo-left").src = photos[photoIndex].left;
+  document.getElementById("photo-right").src = photos[photoIndex].right;
+  document.getElementById("photo-caption").innerText = photos[photoIndex].caption;
+}
+
+      if (section === 'time') {
+        startCountUp(new Date("2023-04-12T11:00:00"));
+      }
+    }
+
+    function nextMessage() {
+      msgIndex = (msgIndex + 1) % messages.length;
+      document.getElementById("message-text").innerText = messages[msgIndex];
+    }
+
+    function nextPhoto() {
+  photoIndex = (photoIndex + 1) % photos.length;
+  document.getElementById("photo-left").src = photos[photoIndex].left;
+  document.getElementById("photo-right").src = photos[photoIndex].right;
+  document.getElementById("photo-caption").innerText = photos[photoIndex].caption;
+}
+
+
+    function goHome() {
+      document.querySelectorAll(".section").forEach(s => s.style.display = "none");
+      document.getElementById("main-screen").style.display = "flex";
+    }
+
+  const startDate = new Date("2023-04-12T00:00:00"); // ngày bắt đầu yêu nhau
+  const countdown = () => {
+    const now = new Date();
+    const diff = now - startDate;
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+
+    document.getElementById("days").textContent = String(days).padStart(2, '0');
+    document.getElementById("hours").textContent = String(hours).padStart(2, '0');
+    document.getElementById("minutes").textContent = String(minutes).padStart(2, '0');
+    document.getElementById("seconds").textContent = String(seconds).padStart(2, '0');
+  };
+
+  setInterval(countdown, 1000);
+  countdown();
+</script>
+
+</body>
+</html>

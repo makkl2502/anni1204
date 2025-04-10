@@ -1,0 +1,309 @@
+body {
+  font-family: 'Arial', 'Helvetica', sans-serif;
+  text-align: center;
+  background-size: 30%;
+  color: white;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.icon-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  margin: 20px;
+}
+
+.icon-btn img {
+  width: 80px;
+  height: 80px;
+}
+
+.section {
+  display: none;
+}
+
+.section p, .section img {
+  margin-top: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1) translateX(-50%);
+  }
+  50% {
+    transform: scale(1.5) translateX(-50%);
+  }
+}
+#main-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
+  gap: 40px; 
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+
+.icon-btn img {
+  width: 100px;
+  height: 100px;
+}
+
+.icon-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 18px;
+  color: #d94e63; /* màu chữ dưới icon */
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+#journey-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+button {
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 16px;
+  background: linear-gradient(to right, #ff7e94, #ffb2c1);
+  border: none;
+  border-radius: 30px;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: linear-gradient(to right, #ff4e70, #ffa2b2);
+  transform: scale(1.05);
+}
+
+.letter-frame {
+  background: #fffaf0;
+  border: 2px dashed #ff7e94;
+  border-radius: 20px;
+  padding: 30px;
+  margin: 20px auto;
+  width: 80%;
+  max-width: 500px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  position: relative;
+  font-size: 18px;
+  color: #444;
+  line-height: 1.6;
+   font-family: 'Noto Serif Display', 'Quicksand', cursive;
+  transition: transform 0.3s ease;
+}
+.letter-frame {
+  font-family: 'Dancing Script', cursive;
+  font-size: 22px;
+  line-height: 1.8;
+}
+
+.letter-frame::before {
+  content: "💌";
+  position: absolute;
+  top: -20px;
+  left: 20px;
+  font-size: 30px;
+}
+
+.letter-frame:hover {
+  transform: scale(1.02);
+}
+
+#message-section button {
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 16px;
+  background: linear-gradient(to right, #ff7e94, #ffb2c1);
+  border: none;
+  border-radius: 30px;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#message-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* hoặc 'center' nếu bạn muốn ở giữa */
+  min-height: 100vh;
+  padding-top: 20vh; /* đẩy nội dung xuống ~20% chiều cao */
+  text-align: center;
+}
+
+
+.letter-frame {
+  background: #fff;
+  border: 2px solid pink;
+  padding: 20px;
+  border-radius: 15px;
+  max-width: 500px;
+  width: 90%;
+  margin: 0 auto 20px auto; 
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+
+
+.letter-open {
+  opacity: 1;
+  transform: scaleY(1);
+}
+.photo-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 30px;
+}
+
+#photo-display {
+  max-width: 300px;
+  border-radius: 20px;
+  border: 3px solid #ff9eb5;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+}
+
+#photo-caption {
+  font-size: 20px;
+  color: #d94e63;
+  background-color: #fff0f5;
+  border: 2px solid #ffb6c1;
+  padding: 12px 20px;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 320px;
+  font-family: 'Noto Serif Display', serif;
+}
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap');
+
+.countdown-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #fff0f5; /* màu nền nhẹ nhàng */
+  font-family: 'Arial', sans-serif;
+
+}
+.time-frame {
+  background: #fffafc;
+  padding: 60px 40px;
+  border-radius: 25px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  border: 3px solid #ffb6c1;
+  max-width: 700px;
+  width: 90%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+
+.time-frame:hover {
+  transform: scale(1.01);
+}
+
+
+.countdown {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-size: 60px;
+  color: #e75480;
+  font-weight: bold;
+  text-align: center;
+}
+
+
+.countdown .label {
+  font-size: 18px;
+  color: #888;
+  margin-top: 8px;
+}
+
+
+.back-btn {
+  margin-top: 40px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #e75480;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.back-btn:hover {
+  background-color: #d43f6e;
+}
+.message-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  width: 100%;
+}
+.photo-frame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.photo-pair {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 10px;
+  flex-wrap: wrap; 
+}
+
+
+.photo-pair img {
+  max-width: 300px; 
+  height: auto;
+  border-radius: 20px;
+  border: 3px solid #ff9eb5;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+@keyframes heart-beat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.02);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  75% {
+    transform: scale(1.02);
+  }
+}
+
+.time-frame {
+  animation: heart-beat 3s infinite;
+}
+
